@@ -2,7 +2,13 @@
 """
 Created on Mon Apr  4 14:30:49 2022
 
-@author: George Su
+@author: KonekoCat
+
+Class: Card
+
+Trump's class Use
+Suit: ♣♦♥♠
+value: A2-10JQK
 """
 
 class Card():
@@ -11,26 +17,22 @@ class Card():
     
     def __init__(self, _suit: int, _value: int):
         self.__suit = _suit
-        self.__value = _value - 1
+        self.__value = _value
+        
     
     def look(self) -> str:
-        s = Card.__SUIT[self.__suit] + Card.__VALUE[self.__value]
+        s = Card.__SUIT[self.__suit - 1] + \
+            Card.__VALUE[self.__value - 1]
         return s
 
 
     @property
-    def suit(self) -> str:
-        return Card.__SUIT[self.__suit]
-    @suit.setter
-    def suit(self, _suit: int):
-        self.__suit = _suit
+    def suit(self) -> int:
+        return self.__suit
     
     @property
-    def value(self) -> str:
-        return Card.__VALUE[self.__value]
-    @value.setter
-    def value(self, _value: int):
-        self.__value = _value - 1
+    def value(self) -> int:
+        return self.__value
 
 
 # confirm class
