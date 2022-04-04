@@ -22,14 +22,14 @@ class Card():
     def suit(self) -> str:
         return Card.__SUIT[self.__suit]
     @suit.setter
-    def suit(self, _suit):
+    def suit(self, _suit: int):
         self.__suit = _suit
     
     @property
     def value(self) -> str:
         return Card.__VALUE[self.__value]
     @value.setter
-    def value(self, _value):
+    def value(self, _value: int):
         self.__value = _value - 1
 
 
