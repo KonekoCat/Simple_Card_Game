@@ -21,7 +21,7 @@ class Card():
         
     
     def look(self) -> str:
-        s = Card.__SUIT[self.__suit - 1] + \
+        s = Card.__SUIT[self.__suit] + \
             Card.__VALUE[self.__value - 1]
         return s
 
@@ -36,8 +36,10 @@ class Card():
 
 
 # confirm class
+# check all methods
 if __name__ == "__main__":
     card = Card(0, 8)
-    card.suit = 2
+    print(card.suit)
+    print(card.value)
     print(card.look())
 
