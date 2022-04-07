@@ -40,4 +40,3 @@ class Deck():
     def check_top(self) -> Card:
         return self.__card_list[self.__top_index]
     
-    
