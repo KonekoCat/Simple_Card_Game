@@ -18,14 +18,12 @@ class Card():
     def __init__(self, _suit: int, _value: int):
         self.__suit = _suit
         self.__value = _value
-        
     
     def look(self) -> str:
         s = Card.__SUIT[self.__suit] + \
             Card.__VALUE[self.__value - 1]
         return s
-
-
+    
     @property
     def suit(self) -> int:
         return self.__suit
