@@ -21,9 +21,13 @@ class Player():
         self.__card_count = 0
         self.__select_index = -1    # No select
     
-    def draw_card(self, deck: Deck):
-        self.__card_list.append(deck.send_card())
+    def draw_card(self, _deck: Deck):
+        self.__card_list.append(_deck.send_card())
         self.__card_count += 1
+    
+    def draw_cards(self, _deck: Deck, _amount: int):
+        self.__card_list.extend(_deck.send_cards(_amount))
+        self.__card_count += _amount
     
     def select_card(self):
         self.__select_index = int(input("Which one select?")) - 1
@@ -31,6 +35,34 @@ class Player():
             self.__select_index = int(input("Select again:")) - 1
             
     def send_card(self) -> Card:
-        pass
+        if self.__select_index != -1:
+            send_card = self.__card_list.pop(self.__select_index)
+            self.__card_count -= 1
+            return send_card
+        else:
+            print("Select Invalid.")
         
-        
+    def drop_cards(self):
+        self.__card_list.clear()
+        self.__card_count = 0
+        self.__select_index = -1
+    
+    def win_set(self):
+        self.__winSet += 1
+        self.__point = 0
+    
+    def lose_set(self):
+        self.__point = 0
+    
+    
+    @property
+    def name(self) -> str:
+        return self.__name
+    
+    @property
+    def winSet(self) -> int:
+        return self.__winSet
+    
+    @property
+    def point(self) -> int:
+        return self.__point
