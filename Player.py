@@ -34,6 +34,14 @@ class Player():
         self.__select_index = int(input("Which one select?")) - 1
         while not 0 <= self.__select_index <= self.__card_count - 1:
             self.__select_index = int(input("Select again:")) - 1
+    
+    def show_card(self) -> Card:
+        if self.__select_index != -1:
+            send_card = self.__card_list[self.__select_index]
+            self.__cardCount -= 1
+            return send_card
+        else:
+            return Card()
             
     def send_card(self) -> Card:
         if self.__select_index != -1:
@@ -41,7 +49,10 @@ class Player():
             self.__cardCount -= 1
             return send_card
         else:
-            print("Select Invalid.")
+            return Card()
+    
+    def card_info(self) -> list:
+        return self.__card_list
         
     def drop_cards(self):
         self.__card_list.clear()
@@ -72,5 +83,13 @@ class Player():
     def cardCount(self) -> int:
         return self.__cardCount
     
+# confirm class
+# check all methods 
+def main():
+    name = "test"
+    player = Player(name)
     
     
+if __name__ == "__main__":
+    main()
+
