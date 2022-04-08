@@ -16,18 +16,22 @@ class Card():
     __VALUE = ['A'] + [str(i) for i in range(2, 11)] + list("JQK")
     
     # Constructor
-    def __init__(self, _suit: int, _value: int):
-        if not (0 <= _suit <= 3):
+    # suit = -1 is the initalize value
+    def __init__(self, _suit: int = -1, _value: int = -1):
+        if not (-1 <= _suit <= 3):
             raise ValueError("Card suit not in 0 ~ 3.")
-        elif not (1 <= _value <= 13):
+        elif not (1 <= _value <= 13 or _value == -1):
             raise ValueError("Card value not in 1 ~ 13(A ~ K).")
             
         self.__suit = _suit
         self.__value = _value
     
     def look(self) -> str:
-        s = Card.__SUIT[self.__suit] + \
-            Card.__VALUE[self.__value - 1]
+        if self.__suit == -1:
+            s = "*"
+        else:
+            s = Card.__SUIT[self.__suit] + \
+                Card.__VALUE[self.__value - 1]
         return s
     
     @property
@@ -36,6 +40,8 @@ class Card():
     
     @property
     def value(self) -> int:
+        if self.__suit == -1:
+            raise ValueError("The card is closed.")
         return self.__value
 
 

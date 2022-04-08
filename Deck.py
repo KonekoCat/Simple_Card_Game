@@ -32,12 +32,16 @@ class Deck():
     
     def send_card(self) -> Card:
         if self.__top_index >= Deck.MAX_AMOUNT:
-            raise IndexError("Deck havn\'t over 52 cards.")
+            raise IndexError("Deck havn\'t over {} cards."\
+                             .format(Deck.MAX_AMOUNT))
         send_card = self.__card_list[self.__top_index]
         self.__top_index += 1
         return send_card
     
     def send_cards(self, _amount: int) -> list:
+        if self.__top_index >= Deck.MAX_AMOUNT:
+            raise IndexError("Deck havn\'t over {} cards."\
+                             .format(Deck.MAX_AMOUNT))
         send_list = list()
         for i in range(_amount):
             send_list.append(self.send_card())
