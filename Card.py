@@ -16,6 +16,11 @@ class Card():
     __VALUE = ['A'] + [str(i) for i in range(2, 11)] + list("JQK")
     
     def __init__(self, _suit: int, _value: int):
+        if not (0 <= _suit <= 3):
+            raise ValueError("Card suit not in 0 ~ 3.")
+        elif not (1 <= _value <= 13):
+            raise ValueError("Card value not in 1 ~ 13(A ~ K).")
+            
         self.__suit = _suit
         self.__value = _value
     
@@ -40,4 +45,8 @@ if __name__ == "__main__":
     print(card.suit)
     print(card.value)
     print(card.look())
+
+    c_list = list()
+    c_list.append(Card(0, 8))
+    print(c_list[0].look())
 
