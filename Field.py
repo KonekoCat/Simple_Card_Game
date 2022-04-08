@@ -11,9 +11,11 @@ import Deck
 import Player
 
 class Field():
+    # Constructor
     def __init__(self, _p_list: list, _deck: Deck):
         self.player_list = [i for i in _p_list.copy()]
         self.deck = copy.deepcopy(_deck)
+        self.field_card = list()
     
     def update_player(self, player: Player, player_num: int):
         pass
@@ -25,7 +27,7 @@ class Field():
         pass
 
     def show(self):
-        pass
+        print("-" * 50)
 
 
 
