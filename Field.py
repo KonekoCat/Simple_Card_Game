@@ -48,11 +48,9 @@ class Field():
                               "win set: " + str(self.player_list[0].winSet), 
                               "point: " + str(self.player_list[0].point), 
                               "{}".format(playerCard)))
-        
         print("-" * 52)
         
         
-
 # confirm class
 # check all methods 
 def main():
@@ -64,7 +62,6 @@ def main():
     deck.ready_new_deck()
     player_list[0].draw_cards(deck, 5)
     player_list[1].draw_cards(deck, 5)
-    
     
     field = Field(player_list, deck)
     field.show()
