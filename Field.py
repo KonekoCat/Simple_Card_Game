@@ -2,7 +2,7 @@
 """
 Created on Thu Apr  7 19:00:44 2022
 
-@author: George Su
+@author: KonekoCat
 """
 import copy
 
